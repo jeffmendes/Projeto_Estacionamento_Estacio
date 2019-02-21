@@ -1,0 +1,19 @@
+Cadastro de cliente:
+	Nome, Fone, Placa do carro, Modelo do carro.
+	
+Controle de entrada e saída.
+	Entrada cliente avulso:
+		Para entrada avulsa o valor a ser cobrado e controlado com relação a hora de estadia no estacionamento.
+		O periodo de estadia no estacionamento é de 6 horas pelo valor de R$ 12,00 reais, caso exeda as seis horas será cobrado R$ 2,00 para cada hora excedente
+	Entrada cliente mensalista:
+		Para entrada de mensalista o valor a ser pago é de R$ 120,00 reais por mês pelo periodo de 6 horas diarias. Para cada hora excedente é cobrado R$ 2,00.
+	Liberação da cancela na entrada:
+		A cancela é liberada após o registro do pagamento.
+	
+	Liberação da cancela na saída
+		
+		
+		 
+Controle de mensalista
+	
+Controle de número de vagas livres
