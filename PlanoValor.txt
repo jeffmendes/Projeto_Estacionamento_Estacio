@@ -14,6 +14,6 @@ Controle de entrada e saída.
 		
 		
 		 
-Controle de mensalista
+Controle de mensalista...
 	
 Controle de número de vagas livres
