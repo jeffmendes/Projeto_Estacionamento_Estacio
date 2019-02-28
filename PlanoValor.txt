@@ -60,8 +60,8 @@ O sistema deve cadastrar todas as vagas, e se possui mensalista ou não.
 RN001 - O Estacionamento aceita que o veículo eventuais parem em seu espaço por um período de tempo, para isso cobra a primeira hora
 completa independente do tempo estacionado e caso exeda as 6 horas será cobrado R$ 2,00 para cada hora excedente.
 
-RN003 - O Estacionamento permite convênio com mensalista, mas para fazer o cadastro tem que ser maior de 18 anos,
+RN002 - O Estacionamento permite convênio com mensalista, mas para fazer o cadastro tem que ser maior de 18 anos,
 e para aprovação tem que trazer os documentos pessoais(CPF, RG). Os preços serão R$120,00 por mês pelo periodo de 6 horas diarias.
 
-RN004 - A liberação da cancela só será efetuado após o pagamento e/ou se for indicado que o cliente é mensalista 
+RN003 - A liberação da cancela só será efetuado após o pagamento e/ou se for indicado que o cliente é mensalista 
 com pagamento em dia.
