@@ -1,19 +1,67 @@
 Cadastro de cliente:
 	Nome, Fone, Placa do carro, Modelo do carro.
 	
-Controle de entrada e sa�da.
+Controle de entrada e saída.
 	Entrada cliente avulso:
-		Para entrada avulsa o valor a ser cobrado e controlado com rela��o a hora de estadia no estacionamento.
-		O periodo de estadia no estacionamento � de 6 horas pelo valor de R$ 12,00 reais, caso exeda as seis horas ser� cobrado R$ 2,00 para cada hora excedente
+		Para entrada avulsa o valor a ser cobrado e controlado com relação a hora de estadia no estacionamento.
+		O periodo de estadia no estacionamento é de 6 horas pelo valor de R$ 12,00 reais, caso exeda as seis horas será cobrado R$ 2,00 para cada hora excedente
 	Entrada cliente mensalista:
-		Para entrada de mensalista o valor a ser pago � de R$ 120,00 reais por m�s pelo periodo de 6 horas diarias. Para cada hora excedente � cobrado R$ 2,00.
-	Libera��o da cancela na entrada:
-		A cancela � liberada ap�s o registro do pagamento.
+		Para entrada de mensalista o valor a ser pago é de R$ 120,00 reais por mês pelo periodo de 6 horas diarias. Para cada hora excedente é cobrado R$ 2,00.
+	Liberação da cancela na entrada:
+		A cancela é liberada após o registro do pagamento.
 	
-	Libera��o da cancela na sa�da
+	Liberação da cancela na saída
 		
 		
 		 
 Controle de mensalista...
 	
-Controle de n�mero de vagas livres
+Controle de número de vagas livres
+
+-------------------------------------------------------------------------
+
+REF : Requisitos funcionais
+RNF : Requisitos não funcionais
+RN : Regra do Negócio.
+
+
+------ REQUISITOS FUNCIONAIS E NÃO FUNCIONAIS
+
+REF001 - Cadastro do cliente:
+Descrição:
+Sistema deve fazer cadastro do cliente atendendo as regras do negócio 
+pois teremos um controle de quem é mensalista e controle no pagamento mensal.
+
+	RNF 1.1 Controle: Caso o cliente seja cadastrado o sistema apresenta tela de informação
+	já cadastrado.
+	
+REF002 - Cliente Avulso:
+O Sistema deve indicar placa e modelo para liberação da cancela.
+Para entrada avulsa o valor a ser cobrado e controlado com relação a hora de estadia no estacionamento.
+
+REF003 - Cliente Mensalista:
+Descrição:
+Sistema deve indicar que o valor da mensalidade a ser recebida, a quantidade de vagas e os desconto
+e se houver atrasos no pagamento.
+Para entrada de mensalista o valor a ser pago é de R$ 120,00 reais por mês pelo periodo de 6 horas diarias. 
+Para cada hora excedente é cobrado R$ 2,00.
+
+	RNF: 3.1 Mensalidade atrasada: Sistema apresenta tela de que o pagamento está em atraso.
+	
+	
+REF004 - Cadastro de vaga:
+O sistema deve cadastrar todas as vagas, e se possui mensalista ou não.
+
+	RNF 4.1 Vaga Ocupada: Sistema deve apresentar uma tela se a vaga está ocupada ou se possui mensalista.
+
+
+------ REGRA DE NEGOCIO
+
+RN001 - O Estacionamento aceita que o veículo eventuais parem em seu espaço por um período de tempo, para isso cobra a primeira hora
+completa independente do tempo estacionado e caso exeda as 6 horas será cobrado R$ 2,00 para cada hora excedente.
+
+RN002 - O Estacionamento permite convênio com mensalista, mas para fazer o cadastro tem que ser maior de 18 anos,
+e para aprovação tem que trazer os documentos pessoais(CPF, RG). Os preços serão R$120,00 por mês pelo periodo de 6 horas diarias.
+
+RN003 - A liberação da cancela só será efetuado após o pagamento e/ou se for indicado que o cliente é mensalista 
+com pagamento em dia.
