@@ -13,9 +13,9 @@ import java.util.Date;
  */
 public class Vagas {
     private Veiculo veiculo = new Veiculo();
-    private Date horarioEntrada = new Date();
+    private Date horarioEntrada;
     private Date horarioSaida = new Date();
-
+    
     /**
      * @return the veiculo
      */
@@ -38,10 +38,10 @@ public class Vagas {
     }
 
     /**
-     * @param horarioEntrada the horarioEntrada to set
+     * 
      */
-    public void setHorarioEntrada(Date horarioEntrada) {
-        this.horarioEntrada = horarioEntrada;
+    public void setHorarioEntrada() {
+        this.horarioEntrada = new Date();
     }
 
     /**
@@ -52,10 +52,10 @@ public class Vagas {
     }
 
     /**
-     * @param horarioSaida the horarioSaida to set
+     *
      */
-    public void setHorarioSaida(Date horarioSaida) {
-        this.horarioSaida = horarioSaida;
+    public void setHorarioSaida() {
+        this.horarioSaida = new Date();
     }
     
     
