@@ -19,15 +19,14 @@ public class EntradaVeiculo {
     //Metodo responsavel por enviar para o DAO o comando e o veiculo a ser adicionado
     //Param Veiculo (Veiculo que sera armazenado)
     //Return Retorna se o carro foi ou nao adicionado com sucesso
-    public void armazenarCarro(Veiculo veiculo, Vagas [] estacionamento){
+    public boolean armazenarCarro(Veiculo veiculo){
         Date horaEntrada = new Date();
-        for(int i = 0; i<=estacionamento.length;i++){
-            if(estacionamento[i].getVeiculo().getPlaca() == null){
-                estacionamento[i].setVeiculo(veiculo);
-                estacionamento[i].setHorarioEntrada();
-                break;
-            }
-        }
+        
+        DAOEntrada entrada = new DAOEntrada();
+        
+        boolean isEntradaOK = entrada.entradaDeVeiculo(veiculo, horaEntrada);
+        
+        return isEntradaOK;
     }
     
     public boolean isCarroEstacionado(){

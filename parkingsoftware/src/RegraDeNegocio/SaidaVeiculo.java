@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class SaidaVeiculo {
     
-    public void removerCarro(Veiculo veiculo, Vagas[] estacionamento){
+    public void removerCarro(Veiculo veiculo){
         Date horarioSaida = new Date();
         
     }
