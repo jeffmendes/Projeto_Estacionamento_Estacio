@@ -98,3 +98,4 @@ INSERT INTO  ControleDeAcesso (HoraEntrada, ID_Placa, Valores, Modelo) VALUE (NO
 
 
 
+
