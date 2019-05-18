@@ -42,8 +42,6 @@ CREATE TABLE Veiculo(
 
 SELECT * FROM Veiculo;
 
-INSERT INTO Veiculo (Placa, Modelo) VALUE ('XYZ1234', 'Ford KA');
-
 -- -----------------------------------------------------
 -- Table `Cliente`
 -- -----------------------------------------------------
@@ -72,14 +70,12 @@ CREATE TABLE ControleDeAcesso(
  HoraSaida DATETIME NULL,
   FK_ID_Usuario INT NULL,
   FK_ID_Valor INT NULL,
-  ID_Placa VARCHAR (10) NOT NULL,
+  Placa VARCHAR (10) NOT NULL,
   PRIMARY KEY (ID_Acesso),
     FOREIGN KEY (FK_ID_Usuario)
     REFERENCES UsuarioOperacional (ID_usuario),
     FOREIGN KEY (FK_ID_Valor)
-    REFERENCES Valores (ID_Valor),
-    FOREIGN KEY (ID_Placa)
-    REFERENCES Veiculo (Placa)
+    REFERENCES Valores (ID_Valor)
 );
 
 SELECT * FROM ControleDeAcesso;
@@ -88,11 +84,13 @@ ALTER TABLE ControleDeAcesso ADD  Modelo VARCHAR(45) NOT NULL;
 /*INSERT INTO  ControleDeAcesso (HoraEntrada, ID_Placa) VALUE (NOW(), NOW(), (SELECT Placa FROM Veiculo));*/
 /*INSERT INTO  ControleDeAcesso (HoraEntrada, ID_Placa) VALUE (NOW(),  (SELECT Placa FROM Veiculo));*/
 /*INSERT INTO  ControleDeAcesso (HoraEntrada, ID_Placa, Valores) VALUE (NOW(), (SELECT Placa FROM Veiculo) ,(SELECT ValorAvulso FROM Valores));*/
-INSERT INTO  ControleDeAcesso (HoraEntrada, ID_Placa, Valores, Modelo) VALUE (NOW(),
+/*INSERT INTO  ControleDeAcesso (HoraEntrada, ID_Placa, Valores, Modelo) VALUE (NOW(),
 	(SELECT Placa FROM Veiculo),
     (SELECT ValorAvulso FROM Valores), 
     (SELECT Modelo FROM Veiculo)
-);
+);*/
+
+CALL InserirDadosAB(NOW(), 'XXX1234', (SELECT ValorAvulso FROM Valores), 'Wolks gol');
 
 /*Verificar a possibilidade de adicionar em multiplas tabelas, exemplo  ControleDeAcesso e Veiculo*/
 
