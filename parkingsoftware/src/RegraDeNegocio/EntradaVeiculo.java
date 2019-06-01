@@ -23,13 +23,16 @@ public class EntradaVeiculo {
         Date horaEntrada = new Date();
         
         DAOEntrada entrada = new DAOEntrada();
+        boolean isEntradaOK = false;
         
-        boolean isEntradaOK = entrada.entradaDeVeiculo(veiculo, horaEntrada);
+        if(!isCarroEstacionado(veiculo)){
+             isEntradaOK = entrada.entradaDeVeiculo(veiculo, horaEntrada);
+        }
         
         return isEntradaOK;
     }
     
-    public boolean isCarroEstacionado(){
+    public boolean isCarroEstacionado(Veiculo  veiculo){
         return false;
     }
 }
