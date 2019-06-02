@@ -6,6 +6,7 @@
 package DAOs;
 
 import RegraDeNegocio.Veiculo;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
 public class DAOSaida {
     Statement stmt = null;
     
-   public boolean saidaDeVeiculo(Veiculo veiculo, Date horaSaida){
+   public boolean saidaDeVeiculo(Veiculo veiculo, Date horaSaida) throws IOException{
        Connection conn = ConexaoDAO.getConexaoMySQL();
        String insertNoBanco = "INSERT INTO ";
         try {
@@ -36,7 +37,7 @@ public class DAOSaida {
         }
    }
    
-   public Veiculo buscaCarroEstacionado(Veiculo veiculo){
+   public Veiculo buscaCarroEstacionado(Veiculo veiculo) throws IOException{
        Veiculo carroEstacionado = new Veiculo();
        
        Connection conn = ConexaoDAO.getConexaoMySQL();
