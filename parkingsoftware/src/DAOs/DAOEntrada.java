@@ -35,13 +35,14 @@ public class DAOEntrada {
         conn = ConexaoDAO.getConexaoMySQL();
    }
    public boolean entradaDeVeiculo(Veiculo veiculo, String horaEntrada){
-       String insertNoBanco = "INSERT INTO ControleDeAcesso (HoraEntrada, Placa)"
-               + "VALUES (?, ?)";   
+       String insertNoBanco = "INSERT INTO ControleDeAcesso (HoraEntrada, Placa, modelo)"
+               + "VALUES (?, ?, ?)";   
        PreparedStatement stmt = null;  
         try {
             stmt = conn.prepareStatement(insertNoBanco);
             stmt.setString(1, horaEntrada);
             stmt.setString(2, veiculo.getPlaca());
+            stmt.setString(3, veiculo.getModelo());
             stmt.executeUpdate();
             return true;    
         } catch (SQLException ex) {

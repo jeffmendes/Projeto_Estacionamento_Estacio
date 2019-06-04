@@ -49,7 +49,8 @@ public class EntradaVeiculo {
         EntradaVeiculo obj = new EntradaVeiculo();
         Veiculo objV = new Veiculo();
         
-        objV.setPlaca("yyyy-1234");
+        objV.setPlaca("cba-1234");
+        objV.setModelo("Ford Ka");
         
         obj.armazenarCarro(objV);
     }
