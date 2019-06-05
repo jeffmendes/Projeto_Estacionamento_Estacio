@@ -23,14 +23,9 @@ import java.util.logging.Logger;
  * @author Eduardo
  */
 public class DAOEntrada {
+   Statement stmt = null;
+   private Connection conn = null;    
     
-    Locale BRAZIL = new Locale("pt", "BR");
-    
-    Statement stmt = null;
-    private Connection conn = null;    
-   
-    
-   
    public DAOEntrada() throws IOException{
         conn = ConexaoDAO.getConexaoMySQL();
    }
@@ -51,30 +46,30 @@ public class DAOEntrada {
         }
    }
    
-   public Veiculo buscaCarroEstacionado(Veiculo veiculo) throws IOException{
+   public boolean buscaCarroEstacionado(Veiculo veiculo) throws IOException{
        Veiculo carroEstacionado = new Veiculo();
        
        Connection conn = ConexaoDAO.getConexaoMySQL();
-       String buscaCarro = "SELECT * FROM";
+       String buscaCarro = "SELECT * FROM  ControleDeAcesso WHERE Placa = 'cba-1234' AND HoraSaida IS NULL";
        
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(buscaCarro);
        
             if(rs == null){
-                return null;
+                return false;
             }
             
             while(rs.next()){
-                
+                return true;
             }
             
-            return carroEstacionado;
+            return false;
             
         } catch (SQLException ex) {
             Logger.getLogger(DAOEntrada.class.getName()).log(Level.SEVERE, null, ex);
             
-            return null;
+            return false;
         }
        
    }

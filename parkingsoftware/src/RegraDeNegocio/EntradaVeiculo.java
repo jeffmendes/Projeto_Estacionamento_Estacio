@@ -24,10 +24,8 @@ public class EntradaVeiculo {
     //Return Retorna se o carro foi ou nao adicionado com sucesso
     public boolean armazenarCarro(Veiculo veiculo) throws IOException{
         Date horaEntrada = new Date();
-        
-//        Locale BRAZIL = new Locale("pt","BR");
-        
         DAOEntrada entrada = new DAOEntrada();
+        
         boolean isEntradaOK = false;
         String DataHora = "";
         SimpleDateFormat formatSimple = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.US);       
@@ -50,7 +48,7 @@ public class EntradaVeiculo {
         Veiculo objV = new Veiculo();
         
         objV.setPlaca("cba-1234");
-        objV.setModelo("Ford Ka");
+        objV.setModelo("modelo");
         
         obj.armazenarCarro(objV);
     }
