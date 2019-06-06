@@ -5,7 +5,12 @@
  */
 package RegraDeNegocio;
 
+import DAOs.DAOEntrada;
+import DAOs.DAOSaida;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -17,5 +22,37 @@ public class SaidaVeiculo {
         Date horarioSaida = new Date();
         
     }
+    
+     public boolean atualizarCarro(Veiculo veiculo) throws IOException{
+        Date horaEntrada = new Date();
+        DAOSaida saida = new DAOSaida();
+        
+        boolean isSaidaOK = false;
+        String DataHora = "";
+        SimpleDateFormat formatSimple = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.US);       
+        DataHora = formatSimple.format(horaEntrada);
+        
+        if(isCarroEstacionado(veiculo)){
+             isSaidaOK = saida.saidaDeVeiculo(veiculo, DataHora);
+        }
+        
+        return isSaidaOK;
+    }
+    
+    public boolean isCarroEstacionado(Veiculo  veiculo) throws IOException{
+        DAOSaida saida = new DAOSaida();
+        return saida.buscaCarroEstacionado(veiculo);
+    }
+    
+//    
+//    public static void main(String[] args) throws IOException {
+//        SaidaVeiculo obj = new SaidaVeiculo();
+//        Veiculo objV = new Veiculo();
+//        
+//        objV.setPlaca("cba-1234");
+////      objV.setModelo("modelo");
+//        
+//        obj.atualizarCarro(objV);
+//    }
     
 }

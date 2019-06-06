@@ -7,6 +7,7 @@ package DAOs;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,24 +26,28 @@ public class ConexaoDAO {
         try{
             config.load(new FileInputStream(arq));
             getConexaoMySQL();
+            statusConnection();
         }catch (IOException e) {
             System.out.println("Erro no arquivo de configuracao");
             System.out.println(e.getLocalizedMessage());
         }
     }
     
-    public static java.sql.Connection getConexaoMySQL(){
+    public static java.sql.Connection getConexaoMySQL() throws FileNotFoundException, IOException{
         Connection conn = null;
         try {
+            
+            config.load(new FileInputStream("src\\DAOs\\config.ini"));
+            
             String driverName = "com.mysql.jdbc.Driver";
             Class.forName(driverName);
-            String serverName = "localhost";
-            String mydatabase = "mysql";
-            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+            String serverName = "localhost:3306";
+            String mydatabase = "parking?autoReconnect=true&useSSL=false";
+            String url = "jdbc:mysql://"+serverName+"/"+mydatabase;
             String username = config.getProperty("username");
             String password = config.getProperty("password");
-            
-            conn = DriverManager.getConnection(url, username, password);
+          
+           conn = DriverManager.getConnection(url, username, password);
             
             if(conn != null){
                 status = ("STATUS---> Conectado com Sucesso");
@@ -52,7 +57,7 @@ public class ConexaoDAO {
             
             return conn;
         }catch(ClassNotFoundException e){
-            System.out.println("O driver expecificado nao foi encontrado");
+            System.out.println("O driver especificado nao foi encontrado");
             return null;
         }catch(SQLException e){
             System.out.println("Nao foi possivel conectar ao Banco de Dados");
@@ -64,7 +69,7 @@ public class ConexaoDAO {
         return status;
     }
     
-    public static boolean FecharConexao(){
+    public static boolean FecharConexao() throws IOException{
         try{
             ConexaoDAO.getConexaoMySQL().close();
             return true;
@@ -73,7 +78,7 @@ public class ConexaoDAO {
         }
     }
     
-    public static java.sql.Connection ReiniciarConexao(){
+    public static java.sql.Connection ReiniciarConexao() throws IOException{
         FecharConexao();
         
         return ConexaoDAO.getConexaoMySQL();
