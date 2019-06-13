@@ -34,7 +34,7 @@ public class SaidaVeiculo {
         
         if(isCarroEstacionado(veiculo)){
              isSaidaOK = saida.saidaDeVeiculo(veiculo, DataHora);
-        }
+}
         
         return isSaidaOK;
     }
@@ -43,16 +43,4 @@ public class SaidaVeiculo {
         DAOSaida saida = new DAOSaida();
         return saida.buscaCarroEstacionado(veiculo);
     }
-    
-//    
-//    public static void main(String[] args) throws IOException {
-//        SaidaVeiculo obj = new SaidaVeiculo();
-//        Veiculo objV = new Veiculo();
-//        
-//        objV.setPlaca("cba-1234");
-////      objV.setModelo("modelo");
-//        
-//        obj.atualizarCarro(objV);
-//    }
-    
 }

@@ -43,7 +43,7 @@ public class ConexaoDAO {
             Class.forName(driverName);
             String serverName = "localhost:3306";
             String mydatabase = "parking?autoReconnect=true&useSSL=false";
-            String url = "jdbc:mysql://"+serverName+"/"+mydatabase;
+            String url = "jdbc:mysql://"+serverName+"/"+ mydatabase;
             String username = config.getProperty("username");
             String password = config.getProperty("password");
           
@@ -60,7 +60,7 @@ public class ConexaoDAO {
             System.out.println("O driver especificado nao foi encontrado");
             return null;
         }catch(SQLException e){
-            System.out.println("Nao foi possivel conectar ao Banco de Dados");
+            System.out.println(e.getMessage());
             return null;
         }
     }

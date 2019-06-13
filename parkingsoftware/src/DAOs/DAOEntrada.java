@@ -12,9 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,8 +35,7 @@ public class DAOEntrada {
             stmt.setString(1, horaEntrada);
             stmt.setString(2, veiculo.getPlaca());
             stmt.setString(3, veiculo.getModelo());
-            stmt.executeUpdate();
-            return true;    
+            return  stmt.execute();    
         } catch (SQLException ex) {
             Logger.getLogger(DAOEntrada.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -50,7 +46,8 @@ public class DAOEntrada {
        Veiculo carroEstacionado = new Veiculo();
        
        Connection conn = ConexaoDAO.getConexaoMySQL();
-       String buscaCarro = "SELECT * FROM  ControleDeAcesso WHERE Placa = 'cba-1234' AND HoraSaida IS NULL";
+       String buscaCarro = "SELECT * FROM  ControleDeAcesso WHERE Placa = '" +
+               veiculo.getPlaca() +"' AND HoraSaida IS NULL";
        
         try {
             stmt = conn.createStatement();

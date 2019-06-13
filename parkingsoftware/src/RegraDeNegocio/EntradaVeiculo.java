@@ -24,6 +24,10 @@ public class EntradaVeiculo {
     //Return Retorna se o carro foi ou nao adicionado com sucesso
     public boolean armazenarCarro(Veiculo veiculo) throws IOException{
         Date horaEntrada = new Date();
+        System.out.println("HERE");
+        System.out.println("Veiculo:\n"
+                + "Placa: " + veiculo.getPlaca()
+                + "\nModelo: " + veiculo.getModelo());
         DAOEntrada entrada = new DAOEntrada();
         
         boolean isEntradaOK = false;
@@ -38,18 +42,8 @@ public class EntradaVeiculo {
         return isEntradaOK;
     }
     
-    public boolean isCarroEstacionado(Veiculo  veiculo){
-        return false;
-    }
-    
-    
-    public static void main(String[] args) throws IOException {
-        EntradaVeiculo obj = new EntradaVeiculo();
-        Veiculo objV = new Veiculo();
-        
-        objV.setPlaca("cba-1234");
-        objV.setModelo("modelo");
-        
-        obj.armazenarCarro(objV);
+    public boolean isCarroEstacionado(Veiculo  veiculo) throws IOException{
+        DAOEntrada entrada = new DAOEntrada();
+        return entrada.buscaCarroEstacionado(veiculo);
     }
 }
