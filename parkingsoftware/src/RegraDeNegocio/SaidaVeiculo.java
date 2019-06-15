@@ -29,7 +29,7 @@ public class SaidaVeiculo {
         
         boolean isSaidaOK = false;
         String DataHora = "";
-        SimpleDateFormat formatSimple = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.US);       
+        SimpleDateFormat formatSimple = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);       
         DataHora = formatSimple.format(horaEntrada);
         
         if(isCarroEstacionado(veiculo)){

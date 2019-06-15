@@ -12,6 +12,7 @@ package RegraDeNegocio;
 public class Veiculo {
     private String placa;
     private String modelo;
+    private double valor;
     
     public String getPlaca(){
         return placa;
@@ -19,6 +20,10 @@ public class Veiculo {
    
     public String getModelo(){
         return modelo;
+    }
+    
+    public double getValor(){
+        return valor;
     }
     
     public void setPlaca(String placa){
@@ -29,4 +34,7 @@ public class Veiculo {
         this.modelo = modelo;
     }
     
+    public void setValor(double valor){
+        this.valor = valor;
+    }
 }

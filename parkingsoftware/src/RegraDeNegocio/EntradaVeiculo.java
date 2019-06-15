@@ -27,12 +27,13 @@ public class EntradaVeiculo {
         System.out.println("HERE");
         System.out.println("Veiculo:\n"
                 + "Placa: " + veiculo.getPlaca()
-                + "\nModelo: " + veiculo.getModelo());
+                + "\nModelo: " + veiculo.getModelo()
+                + "\nValor: " + veiculo.getValor());
         DAOEntrada entrada = new DAOEntrada();
         
         boolean isEntradaOK = false;
         String DataHora = "";
-        SimpleDateFormat formatSimple = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.US);       
+        SimpleDateFormat formatSimple = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");       
         DataHora = formatSimple.format(horaEntrada);
         
         if(!isCarroEstacionado(veiculo)){

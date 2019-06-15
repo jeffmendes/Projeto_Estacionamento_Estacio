@@ -27,14 +27,15 @@ public class DAOEntrada {
         conn = ConexaoDAO.getConexaoMySQL();
    }
    public boolean entradaDeVeiculo(Veiculo veiculo, String horaEntrada){
-       String insertNoBanco = "INSERT INTO ControleDeAcesso (HoraEntrada, Placa, modelo)"
-               + "VALUES (?, ?, ?)";   
+       String insertNoBanco = "INSERT INTO ControleDeAcesso (HoraEntrada, Placa, modelo, valor)"
+               + "VALUES (?, ?, ?, ?)";   
        PreparedStatement stmt = null;  
         try {
             stmt = conn.prepareStatement(insertNoBanco);
             stmt.setString(1, horaEntrada);
             stmt.setString(2, veiculo.getPlaca());
             stmt.setString(3, veiculo.getModelo());
+            stmt.setString(4, String.valueOf(veiculo.getValor()));
             return  stmt.execute();    
         } catch (SQLException ex) {
             Logger.getLogger(DAOEntrada.class.getName()).log(Level.SEVERE, null, ex);

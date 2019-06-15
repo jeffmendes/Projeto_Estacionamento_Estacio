@@ -151,6 +151,7 @@ public class Pagamento extends javax.swing.JFrame {
         // TODO add your handling code here:
         EntradaVeiculo entrada = new EntradaVeiculo();
         veiculo.setModelo(jTextField2.getText());
+        veiculo.setValor(Double.parseDouble(jTextField4.getText()));
         double valor = Double.parseDouble(jTextField4.getText());
         try {
             boolean armazenado = entrada.armazenarCarro(veiculo);
